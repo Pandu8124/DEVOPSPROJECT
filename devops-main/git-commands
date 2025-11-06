@@ -1,0 +1,63 @@
+GIT HUB COMMANDAS :-
+
+1) git init ---> it can be instatial the the git in folder
+2) git add * ----> it can be add the all files in git
+3) git commit -m "write message" ---> it can be save the all file in git
+4) git remote add origin linkofrepo  ---> it can be access the git reprository
+5) git push -u origin branchname ------> it can be push the data in repro
+6) git clone repolink ----> it can be access and download the repro all data 
+7) git branch -m main ---> create the sub branch of repo
+8) git checkout -b branchname ----> it changes the branches which branch we need
+
+
+###------GIT pull Errors ssh key solution ----###
+
+1) ssh-keygen -t rsa -b 4096 -C "rameshwaramsatishkumar@gmail.com"
+2) eval "$(ssh-agent -s)"
+3) ssh-add ~/key
+4) ssh-add -l
+5) cat ~/key.pub
+
+Go to your GitHub account:
+Navigate to Settings > SSH and GPG keys.
+Click New SSH Key.
+Paste the copied key into the Key field and provide a title.
+Click Add SSH Key.
+
+6) ssh -T git@github.com
+7) git clone https/git@github.com:Satish8124/Devops_training.git  
+8) cd directory
+
+
+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
+
+
+
+GIT HUB COMMANDAS :-
+
+1) git init ---> it can be instatial the the git in folder
+2) git add * ----> it can be add the all files in git
+3) git commit -m "write message" ---> it can be save the all file in git
+4) git remote add origin linkofrepo  ---> it can be access the git reprository
+5) git push -u origin branchname ------> it can be push the data in repro
+6) git clone repolink ----> it can be access and download the repro all data 
+7) git branch -m main ---> create the sub branch of repo
+8) git checkout -b branchname ----> it changes the branches which branch we need
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

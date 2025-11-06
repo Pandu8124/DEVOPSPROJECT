@@ -1,0 +1,50 @@
+Jenkins Explanation
+
+1) What is Jenkins?
+Jenkins is an open-source automation server widely used in DevOps for Continuous Integration (CI) and Continuous Delivery (CD).
+It helps automate the parts of software development related to building, testing, and deploying code,
+enabling teams to deliver software faster and with fewer errors.
+2) Key Features of Jenkins:
+1.	Automation: Automates repetitive tasks like building, testing, and deploying.
+2.	Plugins: Over 1,800 plugins to integrate with various tools (e.g., Git, Docker, Kubernetes).
+3.	Pipeline as Code: Allows you to define your build and deployment pipelines using a script (e.g., Jenkinsfile).
+4.	Easy Integration: Works well with tools like GitHub, Maven, Gradle, and more.
+5.	Scalability: Can be distributed across multiple machines for faster builds.
+3) How Jenkins Fits in DevOps:
+1.	Continuous Integration:
+o	Developers commit code to a shared repository.
+o	Jenkins automatically builds and tests the new code, catching issues early.
+2.	Continuous Delivery/Deployment:
+o	After successful builds, Jenkins can deploy code to production or staging environments.
+3.	Monitoring and Reporting:
+o	Provides real-time feedback on build status, test results, and code quality.
+4) Why Use Jenkins in DevOps?
+•	Speeds up development cycles.
+•	Reduces manual errors.
+•	Improves collaboration between teams.
+•	Ensures code quality through automated testing.
+
+
+5) Jenkins Installation in Linux.
+1) Update packages:
+		sudo apt update
+
+2)  Install Java:
+sudo apt install openjdk-17-jdk -y
+
+3) Add Jenkins repository and key:
+Using Curl Command to installing Jenkins: -
+
+updated url: -
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+New url: - 
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+Install Jenkins:
+
+5) sudo apt update
+
+6) sudo apt install jenkins
+
+ 7) Start Jenkins and access it at http://localhost:8080

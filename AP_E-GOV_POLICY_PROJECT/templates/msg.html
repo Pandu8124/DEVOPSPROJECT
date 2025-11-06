@@ -1,0 +1,191 @@
+<style>
+    /* Chat Bot Styling */
+    .chat-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #1ba100;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    
+    .chat-box {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 350px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        display: none;  /* Initially hidden */
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1001;  /* Ensuring it's above other elements */
+    }
+    
+    .chat-header {
+        background: #0013d4;
+        color: white;
+        padding: 12px;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .chat-body {
+        height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #f9f9f9;
+    }
+    
+    /* Styling messages */
+    .chat-message {
+        max-width: 80%;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 5px;
+    }
+    
+    .bot-message {
+        background: #0013d4;
+        color: white;
+        align-self: flex-start;
+    }
+    
+    .user-message {
+        background: #28a745;
+        color: white;
+        align-self: flex-end;
+    }
+    
+    .chat-footer {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        background-color: #f8f9fa;
+    }
+    
+    .chat-footer input {
+        flex: 1;
+        border: none;
+        padding: 8px;
+        border-radius: 5px;
+        outline: none;
+    }
+    
+    .chat-footer button {
+        background: #00b828;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        cursor: pointer;
+        margin-left: 5px;
+        border-radius: 5px;
+    }
+    </style>
+    
+    <!-- Chat Button -->
+    <div class="chat-btn" onclick="toggleChat()">💬</div>
+    
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            Help Center
+            <button class="back-btn" onclick="toggleChat()">✖</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot-message">Hello! How can I help you?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <script>
+    function toggleChat() {
+        let chatBox = document.getElementById("chatBox");
+        if (chatBox.style.display === "none" || chatBox.style.display === "") {
+            chatBox.style.display = "flex"; 
+        } else {
+            chatBox.style.display = "none";
+        }
+    }
+    
+    function sendMessage() {
+        let input = document.getElementById("chatInput");
+        let message = input.value.trim();
+        if (message) {
+            let chatBody = document.getElementById("chatBody");
+    
+            // Append user message
+            let userMessage = document.createElement("div");
+            userMessage.className = "chat-message user-message";
+            userMessage.innerText = message;
+            chatBody.appendChild(userMessage);
+    
+            // JSON object containing possible questions and responses
+            const qaPairs = {
+                "How can I apply for a government ID?": "You can apply for a government ID online through our official portal. Would you like the link?",
+                "Where can I check my application status?": "You can check your application status on the government services website under 'Track Application'.",
+                "What documents are required for passport application?": "You need a birth certificate, a national ID, and proof of residence.",
+                "How long does it take to process my application?": "Processing times vary, but generally, it takes 7-14 business days.",
+                "How can I renew my driving license?": "You can renew it online through the transport department's website or visit the local office.",
+                "How do I register for an online government service?": "Go to the official website, create an account, and follow the registration steps.",
+                "What are the fees for document verification?": "The fees depend on the document type. Would you like to check a specific document?",
+                "?": "You can reach out to our support center at support@example.com or call our helpline at 123-456-7890."
+            };
+    
+            // Default bot responses
+            const defaultResponses = [
+                "Sure, how can I assist you?",
+                "Please provide more details.",
+                "I can help with government-related inquiries.",
+                "Need assistance with documentation?",
+                "We are here to make things easy for you!",
+                "Feel free to ask any questions.",
+                "What service do you need help with?",
+                "Looking for online application support?",
+                "Let me check that for you.",
+                "We appreciate your patience!"
+            ];
+    
+            // Convert user message to lowercase and check if it matches a predefined question
+            let botResponse = qaPairs[message] || defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    
+            // Append bot response after a short delay
+            setTimeout(() => {
+                let botMessage = document.createElement("div");
+                botMessage.className = "chat-message bot-message";
+                botMessage.innerText = botResponse;
+                chatBody.appendChild(botMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 500);
+    
+            input.value = "";
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    }
+    
+    // Allow sending messages using the Enter key
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    }
+    </script>

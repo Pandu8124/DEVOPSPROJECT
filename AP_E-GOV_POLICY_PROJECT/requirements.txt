@@ -1,0 +1,11 @@
+flask 
+#Python==3.12.3
+mysql-connector-python
+flask-mysql 
+mysqlclient
+Flask-MySQLdb
+Flask-MySQL
+
+
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aarogyasri Applications</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .nav-link, .navbar-brand {
+            color: black !important;
+        }
+        .navbar .nav-link:hover {
+            color: #0013d4 !important;
+        }
+        .welcome-section {
+            background-color: #0013d4;
+            color: white;
+            padding: 40px 0;
+        }
+        .table-container {
+            padding: 40px 0;
+        }
+        .table-responsive {
+            width: 90%;
+            margin: auto;
+        }
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg p-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">E-Government Services</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/aarogyasri">Apply for Aarogyasri</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="/home">Policys</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section text-center">
+        <h2>Aarogyasri Applications</h2>
+        <p>List of patients who have applied for Aarogyasri policy.</p>
+    </div>
+
+    <!-- Applications Table -->
+    <div class="container table-container">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>Guardian Name</th>
+                        <th>Aadhar Card</th>
+                        <th>Ration Card</th>
+                        <th>Disease Category</th>
+                        <th>Hospital Name</th>
+                        <th>Doctor Name</th>
+                        <th>Contact Number</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for app in applications %}
+                    <tr>
+                    
+                        <td>{{ app.id }}</td>
+                        <td>{{ app.patient_name}}</td>
+                        <td>{{ app.age}}</td>
+                        <td>{{ app.guardian_name }}</td>
+                        <td>{{ app.aadhar_card }}</td>
+                        <td>{{ app.ration_card}}</td>
+                        <td>{{ app.disease_category}}</td>
+                        <td>{{ app.hospital_name }}</td>
+                        <td>{{ app.doctor_name }}</td>
+                        <td>{{ app.contact_number}}</td>
+                        <!-- <td>{{ app[10] }}</td> -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

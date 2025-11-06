@@ -1,0 +1,289 @@
+what is Docker?
+
+
+
+
+How to install Docker inside windows?
+->
+->
+->
+->
+
+
+What is container ?
+-> container is a way to packages application with all the necessary dependencies configaration.
+-> it will be have application IMAGES to configer.
+
+How to run and create the Docker Container?[DOCKER HUB]
+->first create the image inside the docker desktop.
+-> in image it can the image id and all informatio.
+-> Then click on the run buttkon they show the create a container add the localhost number and add the network all the information.
+-> create the container.
+
+how to install image in my container ?
+-> first install Docker Desktop in your Laptop.
+-> check the docker are installed not use [docker]
+-> use the doker hub inside we can have the free images in that images to pull the image
+-> like exp:- i am using the NGINX image i can ge access the all web content like web pages are represent in google.
+-> using command as [doker pull nginx]
+->check the images are avaliable inside the Docker use [docker images]
+
+What is a Docker Image?
+-> A Docker Image is a read-only template that contains a set of instractions for creating a container that can run on the Docker Platform.
+-> it provide a convenient way of package up applications and preconfigured server environments, 
+-> by using this image to only create the n-numner of Containers.
+
+What do you mean by Docker image and Container Image?
+-> docker image means it can be used to store the all data in to container wise
+
+
+
+##### COMMANDS FOR DOCKER ######
+1) docker   -> it can be show the docker is avaliable are not.
+2) docker --version   -> it can show the version of docker.
+3) docker login  -> it can be liogin the DOCKER HUB account.
+
+4) docker image ls -> in case we can have any images in my docker use this command to show the all images.
+5) docker pull imagename -> it can download the new image in docker.
+6) docker search imagename  -> it can show the related all the images for searching.
+7) docker inspect image imagename  -> it can be show the over all information of the particular image.
+
+## ------- how to create container using terminal  commands ------##
+1) docker ps  -> it can be show the running state containers.
+2) docker ps -a  -> it can show the how many containers are runnung and how many are stoping.
+3) docker create imagename   -> it can be created the docker container in particular image.
+4) docker create --name nameofcontainer imagename  -> it can be created by customised container like user defined containered.
+5) docker run --name containername imagename -> it can be create the container and automaticaly run the container and start the container but defacult to stop this 
+                                                any functional keys are not work.[ctrl + q, ctrl + c, ctrl + z]any key not work.
+6) docker run -d --name continername imagename  -> it the use of the creating the container and it can start but nut run the container use this to create container.
+
+##----remove the container ----##
+1) docker rm <imageid & containerid> -> it can be remove the container.
+2) docker rmi <imageid & containerid> --> it can also remove the container.
+3) docker kill <imageid & containerid> -> it can be kill the container means, it can be showdown  fourcefully in container means any background are working also it can be close the all.
+4) docker rm $(docker ps -a -q) -> it can be remove the multipul containers at a time. this is loop.
+5) docker <imageid & containerid> prune ----> it can be remove the all the containers.
+6) docker rmi -f <image_id> ----> If the image is being used by a container, you need to stop the container first. To force-remove an image.
+
+
+### ----- Running containers ------###
+1) docker start containername(or)CONTAINERID
+2) docker stop  containername(or)CONTAINERID
+
+###----DOCKER NETWORKING -----###
+networking means one or more connection in internet
+there are three networks are avaliable 
+1) Brig network -> [ docker run -d --name contername -p 8081:80 imagename ]
+        Brige network means it can be craeted the unique hosting address but same ip of container.
+        Like:- expl i can have the 3 containers i want to run that into the google that time i want to create the bridge network 
+                it can be used to access the container ip and create unique host[8081][8082].
+2) Host network -> [ docker run -d containername --net host imagename ]
+                  Host network means it can directly use the docker ip address and run the google not use any host number.
+3) None network -> [docker run -d containername --net none imagename]
+                  None network means it work on the non host address.
+
+use this into the docker host:- 
+1) check hostname
+2) check the ip address use [ifconfig]
+3) docker nework ls -> it can show the networks are avaliable 
+4) check image and create the container use command as [ docker run -d --name containername -p 8080:80 imagename ]
+5) check the ip address and copy that and past the google and host number also you can run it can open the google browser.
+6) [docker network inspect brige ]
+
+
+###----What are the volumes in Docker ?----####
+-> it can be store container data perminatly with out volume container data must be temporieriely.
+To create a Docker Volume use the command
+-----------------------------------------
+docker volume create testvol1
+docker volume ls
+docker volume inspect testvol1
+---------------------------------------
+Mounting a Volume using -v or --mount
+---------------------------------------
+docker run -it --name=srv01 --mount source=testvol1,destination=/data centos
+docker run -it --name srv04 -v testvol1:/data centos
+docker run -it --volumes-from srv01 --name srv02 centos /bin/bash
+---------------------------------------
+Mounting a Host Directory as a Data volume 
+---------------------------------------
+mkdir files
+cd files
+touch file.txt
+docker run -it –-name srv05 -v "$(pwd)":/data1 centos
+docker volume rm [volume_name]
+------------------------------------------------
+
+1) [docker volume ls ] -> it can show the docker volumes.
+2) [ docker volume inspect volumename ] -> it can be show the where we can storing the volumes.PATH AS (var/lib/docker/volume)
+3) [cd var/lib/docker/volume  ls] ->first we change the directory of the where we are storing the volume data, then use the (ls)command to find the how many volumes
+                                    stored inside taht.
+4) [ cd volumename ] it can be acess the particular volume. use the (ls) it can be show the what ever must be we can have all files.
+6) [docker volume rm volumeid] -> it can be remove the what ever we can selected particular volume.
+7) [docker volume prune] -> it can remov the all volumes with out using the any container in any volume that volumes must be remove.
+
+###----How to create a volume for Docker Container?---###
+1) [ docker volume create volumename ]-> It can be create the new volume.
+2) [ docker ls] -> it can shhow the list fo volumes.
+3) [ docker volume incept volumename ] -> it can be inspect the information of volume.
+
+###---Add the volume in spefic Container ?---###
+1) [docker login ] -> first login the container that add the volume.
+2) [ docker run -it --name=containername --mount source=volumename,destination=/data imagename ] -> it can be add the spefic volume into container and
+   [  docker run -it -name  containername -v volumenane:/data imagename ]                            add based on the image.
+3) [ls] -> next check the list of the container. inside we can have the folder as data.
+4) [cd data ] -> next move that folder, and create the sum any file.
+5) [ touch first.txt] -> using shell script to create the file and add the data.
+6) [echo " this is my first volume creation" >> first.txt] -> this command can be added the data inside created file.
+7) [cat first.txt ] -> use the cat command to check they are added are not.
+8) [cd volumedata storedlocation] -> go to the stored location and check that can storede are not.
+9) [docker run it --volumes-from container1 --name container2 imagename /bin/bash ] -> it can be share the volume in one container to another container.
+
+##---HOW TO CREATE THE VOLUEME IN CUSTOME FOLDER ---##
+1) [ mkdir foldername ] -> using shell script to create the folder. and change the folder.
+2) [mkdir file ] -> same create the another folder and change the folder.
+3) [pwd] -> chewck the present working directory.
+4) [touch file.txt ] -> create a file.
+5) [echo "this is mydata">>file.txt] -> add the data in the created file.
+6) [docker run -it -name containername -v "$(pwd)":/data1 imagename ] -> this command can be created the custom folder inside volume.
+7) [ls] ->Then go and check they are created or n ot in correct directory.
+
+##--REMOVE THE VOLUME--##
+1) [docker volume rm volumename ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+------------------------------------------------
+##----DOCKER CUSTOM IMAGE CREATIONG PROCESS ----##
+
+step1 =>  open the ubuntu and create the FOLDER inside the server.
+step2 => download the code to githb. and create the docker file.
+Docker File Stracture:
+[[---
+FROM python:3-alpine3.9 -----> ity can be install the python.
+WORKDIR /app  ------> inside the container create the new folder that as app.
+COPY . .   -----> it can copy the all local folder file to container inside folder.
+EXPOSE 5000  ----> by default flask local host number.
+RUN pip install -r requirements.txt   ----> Dependence install in server.
+CMD ["flask", "run", "--host", "0.0.0.0"]  ---> running command.
+----]]
+
+step3 => change the path of that code folder.
+step4 => [docker build -t imagename .] --> it can be create the image. that spefic code.
+step5 => [ docker run -p 5000:5000 imageid] -> it can be create to the container and run.
+
+#### ---------Docker creation completed----#####
+-------------------------------------------------
+
+
+#### ---------Docker image and container push commands ----#####
+step1-> docker login
+step2-> docker tag myimage:latest dockerhub-userprofilename/imagename
+step3-> docker push pandu8124/myimage:latest
+-------------------------------------------------
+
+
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+) [ ] ->
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

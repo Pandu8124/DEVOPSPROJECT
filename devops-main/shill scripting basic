@@ -1,0 +1,56 @@
+######### SHILL SCRIPT NOTES ######
+######## UBUNTU COMMANDAS ########
+
+####COMMANDAS####      ####EXPLINATION#####
+
+ctrl + Alt + t :- it open the terminal of the ubuntu.
+cd :-  change Directory for root.
+cd / :- change the home Directory.  
+pwd :- present change Directory.
+ls :- list of files in side the particular Folder are Directory. 
+mkdir filename :- it creates the folder inside the correct directory.
+rm :- it delete the  all files.
+rm -r foldername :- it remove the particular folder where you have to delete and not a file.
+rm -f filename :- it remove the correct file of the particular directory in that file it can be delete.
+rm -rf :- it remove from the folder and inside file both they can remove.
+cp :- copy file in that. 
+mv :- move the file one to another one. 
+touch :- it create the new file. 
+vim :- it can also crearte the same new file, but we can create a number of files at a time that time use the Touch command. 
+cat :- it open the file output. 
+cretae file and save:- vim filename.sh -->enter
+                        ---------
+                        open file and write shibang comments.
+                        in side file write commands of shibang = 
+                        !#/bin/bash, !#/bin/sh 
+                        press I they show the bottom of write side as INSERT then write the inside file.
+                        then completed code next press 
+                        ESC button, they gos to the bottom line.
+                        next !wq it can be save the data inside file 
+                        w isthe write of inside file and q is quit of file.
+This That file creation process.
+                        
+:- vc
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+:- 
+

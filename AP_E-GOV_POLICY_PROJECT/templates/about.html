@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us - E-Citizen Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .nav-link, .navbar-brand {
+            color: black !important;
+        }
+        .navbar .nav-link:hover {
+            color: #0013d4 !important;
+        }
+        .about-section {
+            padding: 50px 0;
+        }
+        .about-content {
+            text-align: justify;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .nav-link, .navbar-brand {
+            color: black !important;
+        }
+        .navbar .nav-link:hover {
+            color: #0013d4 !important;
+        }
+        .chat-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #1ba100;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin-right: 20px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 320px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+        }
+        .chat-header {
+            background: #0013d4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .chat-body {
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .chat-footer {  
+            display: flex;
+            border-top: 1px solid #ccc;
+            padding: 5px;
+            margin-right: 20px;
+        }
+        .chat-footer input {
+            flex: 1;
+            border: none;
+            padding: 5px;
+            margin-bottom: 40px;
+        }
+        .chat-footer button {
+            background: #00b828;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+        .chat-message {
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+        .user-message {
+            background: #d1e7ff;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background: #f1f1f1;
+            align-self: flex-start;
+        }
+        .footer {
+            background-color: #0013d4;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .footer .right {
+            display: flex;
+            align-items: center;
+        } 
+        .footer .right p {
+            margin: 0;
+            margin-right: 10px; 
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="static/images/lg2.png" alt="Logo" width="50" height="50" class="me-2"> 
+                <span>E-Government Policy</span>
+            </a>
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item"><a class="nav-link px-3" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="about">About</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="container about-section">
+        <h2 class="text-center">About Us</h2>
+        <p class="text-center">Who we are and what we do.</p>
+        
+        <div class="row">
+            <div class="col-md-12 about-content">
+                <p>
+                    Welcome to <strong>E-Citizen Services</strong>, a platform dedicated to providing government-related 
+                    digital services for citizens. Our mission is to make public services more accessible, 
+                    efficient, and transparent through the power of technology.
+                </p>
+                <p>
+                    Our services include digital documentation, identity verification, tax filings, online 
+                    applications for government schemes, and much more. We aim to eliminate bureaucracy and 
+                    reduce the hassle of paperwork, making it easier for citizens to access essential services.
+                </p>
+                <p>
+                    With a dedicated team of developers, designers, and customer support specialists, we are 
+                    constantly innovating to improve the way people interact with government services.
+                </p>
+                <p>
+                    Thank you for choosing <strong>E-Citizen Services</strong>. We are here to serve you better!
+                </p>
+            </div>
+        </div>
+    </div>
+
+   <!-- Chat Button -->
+   <div class="chat-btn" onclick="toggleChat()">
+    💬
+</div>
+
+<!-- Chat Box -->
+<div class="chat-box" id="chatBox">
+    <div class="chat-header">
+        Help Center
+        <button class="back-btn" onclick="toggleChat()">✖</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="chat-message bot-message">Hello! How can I help you?</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    // JSON object containing possible questions and responses
+    const qaPairs = {
+        "How can I apply for a government ID?": "You can apply for a government ID online through our official portal. Would you like the link?",
+        "Where can I check my application status?": "You can check your application status on the government services website under 'Track Application'.",
+        "What documents are required for passport application?": "You need a birth certificate, a national ID, and proof of residence.",
+        "How long does it take to process my application?": "Processing times vary, but generally, it takes 7-14 business days.",
+        "How can I renew my driving license?": "You can renew it online through the transport department's website or visit the local office.",
+        "How do I register for an online government service?": "Go to the official website, create an account, and follow the registration steps.",
+        "What are the fees for document verification?": "The fees depend on the document type. Would you like to check a specific document?",
+        "?": "You can reach out to our support center at support@example.com or call our helpline at 123-456-7890."
+    };
+
+    // Default bot responses if question is not found
+    const defaultResponses = [
+        "Sure, how can I assist you?",
+        "Please provide more details.",
+        "I can help with government-related inquiries.",
+        "Need assistance with documentation?",
+        "We are here to make things easy for you!",
+        "Feel free to ask any questions.",
+        "What service do you need help with?",
+        "Looking for online application support?",
+        "Let me check that for you.",
+        "We appreciate your patience!"
+    ];
+
+    function toggleChat() {
+        let chatBox = document.getElementById("chatBox");
+        chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendMessage() {
+        let input = document.getElementById("chatInput");
+        let message = input.value.trim();
+        if (message) {
+            let chatBody = document.getElementById("chatBody");
+
+            // Append user message
+            chatBody.innerHTML += `<div class="chat-message user-message">${message}</div>`;
+
+            // Convert user message to lowercase and check if it matches a predefined question
+            let botResponse = qaPairs[message] || defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+
+            // Append bot response after a short delay
+            setTimeout(() => {
+                chatBody.innerHTML += `<div class="chat-message bot-message">${botResponse}</div>`;
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 500);
+
+            input.value = "";
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    }
+</script>
+
+    <!-- Footer -->
+    <footer class="footer text-center p-3 mt-4 d-flex justify-content-between align-items-center">
+        <div class="left">
+            <p class="mb-0">&copy; 2025 E-Government Services. All Rights Reserved.</p>
+        </div>
+        <div class="right d-flex align-items-center">
+            <p class="mb-0 me-2">support@eservice.com</p>
+            <img src="static/images/lg2.png" alt="Logo" width="50" height="50">
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+

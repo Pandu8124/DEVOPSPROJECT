@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Citizen Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Navbar */
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .nav-link, .navbar-brand {
+            color: black !important;
+        }
+        .navbar .nav-link:hover {
+            color: #0013d4 !important;
+        }
+
+        /* Carousel Section */
+        .welcome-section {
+            position: relative;
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }   
+
+        .carousel-img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Overlay Text */
+        .welcome-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #0013d4;
+            text-align: center;
+            font-size: 150px;
+            font-weight: bold;
+            z-index: 2;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 40px 20px;
+        }
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .footer {
+    background-color: #0013d4;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    
+
+.footer .right {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+} 
+
+.footer .right p {
+    margin: 0;
+    margin-right: 10px; 
+    
+}
+        b{
+            color: #0b60fd;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="static/images/lg2.png" alt="Logo" width="50" height="50" class="me-2"> 
+                <span>E-Government Services</span>
+            </a>
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item"><a class="nav-link px-3" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="/register">Register</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Welcome Section with Image Carousel -->
+    <div class="welcome-section position-relative">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='images/side.png') }}" class="d-block w-100 carousel-img" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/bnr.jpg') }}" class="d-block w-100 carousel-img" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/bnr2.jpg') }}" class="d-block w-100 carousel-img" alt="Slide 3">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Text Overlay -->
+        <div class="welcome-text">
+            <h2 style="font-size: 40px;">Welcome to E-Government Services</h2>
+        </div>
+    </div>
+
+    <!-- About Section with Paragraphs -->
+    <div class="container about-section">
+        <h3 class="text-center mb-3">About E-Government Services</h3>
+        <p>
+             <b>Economic Policies :</b>
+            These policies focus on managing the country's economy, including taxation, government spending, inflation control, and financial regulations. Examples include:<br>
+            
+            <b  >Monetary Policy :</b> Managed by the central bank to control money supply and interest rates.
+            
+            <b>Fiscal Policy :</b>  Government decisions on taxation and spending to influence economic growth.
+            
+             <b>Social Policies :</b>
+            These policies aim to improve the quality of life of citizens by addressing healthcare, education, social security, and public welfare. Examples include:
+            
+            <b>Health Policies :</b> Programs like universal healthcare and vaccination campaigns.
+            
+            <b>Education Policies :</b> Free or subsidized education, scholarship programs, and skill development.
+        </p>
+        <p>
+<b>Environmental Policies :</b>
+These policies focus on protecting natural resources and addressing climate change. Examples include:
+
+ <b>Sustainable Development Goals (SDGs) : </b>– Policies to reduce carbon emissions and promote clean energy.
+
+ <b>Pollution Control Measures :</b> – Regulations to limit industrial waste and deforestation.<
+
+ <b>Foreign Policies : </b>
+These policies define a country's relations with other nations, including trade agreements, diplomatic relations, and defense strategies. Examples include:<br>
+
+  <b>Trade Agreements :</b> – Free trade agreements (FTAs) with other nations.
+
+ <b>Defense Policies :</b> – Military alliances and national security strategies.
+
+<b>Technology & Digital Policies :</b>
+With the rise of digitalization, governments introduce policies to regulate data privacy, cybersecurity, and innovation. Examples include:
+
+<b>Data Protection Laws : </b> – Regulations like GDPR to protect user privacy. 
+
+<b>E-Governance Initiatives :</b>Digital identity programs and online government services.
+        </p>
+        <b></b>
+        <br>
+    </div>
+<!--------chart board start-->
+<style>
+    /* Chat Bot Styling */
+    .chat-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #1ba100;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    
+    .chat-box {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 350px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        display: none;  /* Initially hidden */
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1001;  /* Ensuring it's above other elements */
+    }
+    
+    .chat-header {
+        background: #0013d4;
+        color: white;
+        padding: 12px;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .chat-body {
+        height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #f9f9f9;
+    }
+    
+    /* Styling messages */
+    .chat-message {
+        max-width: 80%;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 5px;
+    }
+    
+    .bot-message {
+        background: #0013d4;
+        color: white;
+        align-self: flex-start;
+    }
+    
+    .user-message {
+        background: #28a745;
+        color: white;
+        align-self: flex-end;
+    }
+    
+    .chat-footer {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        background-color: #f8f9fa;
+    }
+    
+    .chat-footer input {
+        flex: 1;
+        border: none;
+        padding: 8px;
+        border-radius: 5px;
+        outline: none;
+    }
+    
+    .chat-footer button {
+        background: #00b828;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        cursor: pointer;
+        margin-left: 5px;
+        border-radius: 5px;
+    }
+    </style>
+    
+    <!-- Chat Button -->
+    <div class="chat-btn" onclick="toggleChat()">💬</div>
+    
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            Help Center
+            <button class="back-btn" onclick="toggleChat()">✖</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot-message">Hello! How can I help you?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <script>
+    function toggleChat() {
+        let chatBox = document.getElementById("chatBox");
+        if (chatBox.style.display === "none" || chatBox.style.display === "") {
+            chatBox.style.display = "flex"; 
+        } else {
+            chatBox.style.display = "none";
+        }
+    }
+    
+    function sendMessage() {
+        let input = document.getElementById("chatInput");
+        let message = input.value.trim();
+        if (message) {
+            let chatBody = document.getElementById("chatBody");
+    
+            // Append user message
+            let userMessage = document.createElement("div");
+            userMessage.className = "chat-message user-message";
+            userMessage.innerText = message;
+            chatBody.appendChild(userMessage);
+    
+            // JSON object containing possible questions and responses
+            const qaPairs = {
+                "How can I apply for a government ID?": "You can apply for a government ID online through our official portal. Would you like the link?",
+                "Where can I check my application status?": "You can check your application status on the government services website under 'Track Application'.",
+                "What documents are required for passport application?": "You need a birth certificate, a national ID, and proof of residence.",
+                "How long does it take to process my application?": "Processing times vary, but generally, it takes 7-14 business days.",
+                "How can I renew my driving license?": "You can renew it online through the transport department's website or visit the local office.",
+                "How do I register for an online government service?": "Go to the official website, create an account, and follow the registration steps.",
+                "What are the fees for document verification?": "The fees depend on the document type. Would you like to check a specific document?",
+                "?": "You can reach out to our support center at support@example.com or call our helpline at 123-456-7890."
+            };
+    
+            // Default bot responses
+            const defaultResponses = [
+                "Sure, how can I assist you?",
+                "Please provide more details.",
+                "I can help with government-related inquiries.",
+                "Need assistance with documentation?",
+                "We are here to make things easy for you!",
+                "Feel free to ask any questions.",
+                "What service do you need help with?",
+                "Looking for online application support?",
+                "Let me check that for you.",
+                "We appreciate your patience!"
+            ];
+    
+            // Convert user message to lowercase and check if it matches a predefined question
+            let botResponse = qaPairs[message] || defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    
+            // Append bot response after a short delay
+            setTimeout(() => {
+                let botMessage = document.createElement("div");
+                botMessage.className = "chat-message bot-message";
+                botMessage.innerText = botResponse;
+                chatBody.appendChild(botMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 500);
+    
+            input.value = "";
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    }
+    
+    // Allow sending messages using the Enter key
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    }
+    </script>
+
+<!-------chartboard end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="footer text-center p-3 mt-4 d-flex justify-content-between align-items-center">
+    <div class="left">
+        <p class="mb-0">&copy; 2025 E-Government Services. All Rights Reserved.</p>
+    </div>
+    <div class="center"></div>
+    <div class="right d-flex align-items-center">
+        <p class="mb-0 me-2">support@eservice.com</p>
+        <img src="static/images/lg2.png" alt="Logo" width="50" height="50">
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

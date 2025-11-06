@@ -1,0 +1,49 @@
+1)create new enviroment command
+    conda create -n envname python=version
+
+2) activate command
+    conda activate environment name
+
+3)Deactivate command
+    conda deactivate
+
+4) checking environment lits
+    conda env list
+
+5) checking packages Versions
+    conda list
+
+6)Removing environmental command
+   conda remove --name environmental name --all
+
+
+7) python version checking Commands
+   conda -V or conda --version 
+   python -V or python --version 
+   conda list python
+
+8)conda catche files remove 
+   conda clean python-a
+
+
+
+
+
+
+WINDOWS SHORTCUTS:-
+
+CNT + T = GOOGLE NEW TAB
+
+CNT + W = CLOSE TAB
+
+WIND + M = MINIMIZE
+
+WIND + SHFT + M = RELOAD MININIZE
+
+WIND + E = FILE MANAGER
+
+CNT + SHFT + T = PREVICE GOOGLE CLOSED PAGES
+
+CNT + K = GOOGLE SEARCH
+
+CNT + SHFT + N =   
